@@ -1,0 +1,88 @@
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi/sketch-%05d.png \
+-vf palettegen /Volumes/Volumina\ 1/frames/shape-convolution/multi-palette.png
+
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi/sketch-%05d.png \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/multi-palette.png \
+-lavfi paletteuse \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi.gif
+
+gifsicle -O3 --lossy=50 \
+-o /Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-lossy-50.gif \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi.gif
+
+ffmpeg \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi-600x600/sketch-%05d.png \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/multi-palette.png \
+-lavfi paletteuse \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-600x600.gif
+
+gifsicle -O3 --lossy=50 \
+-o /Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-600x600-lossy-50.gif \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-600x600.gif
+
+
+ffmpeg \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi/sketch-%05d.png \
+-s 500x500 \
+/Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi-500x500/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi-500x500/sketch-%05d.png \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/multi-palette.png \
+-lavfi paletteuse -frames:v 3800 \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-500x500.gif
+
+gifsicle -O3 --lossy=25 \
+-o /Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-500x500-lossy-25.gif \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-500x500.gif
+
+-------------------
+
+ffmpeg \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi-150f/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi-150f-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi-150f-600x600/sketch-%05d.png \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/multi-palette.png \
+-lavfi paletteuse \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-600x600.gif
+
+gifsicle -O3 --lossy=25 \
+-o /Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-600x600-lossy-25.gif \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-600x600.gif
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi-150f-600x600/sketch-%05d.png \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/multi-palette.png \
+-lavfi paletteuse -frames:v 2850 \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-f2850-600x600.gif
+
+gifsicle -O3 --lossy=25 \
+-o /Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-f2850-600x600-lossy-25.gif \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-f2850-600x600.gif
+
+gifsicle -O3 --lossy=50 \
+-o /Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-f2850-600x600-lossy-50.gif \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-f2850-600x600.gif
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/concave-hull-multi-150f-600x600/sketch-%05d.png \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/multi-palette.png \
+-lavfi paletteuse -frames:v 2700 \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-f2700-600x600.gif
+
+gifsicle -O3 --lossy=25 \
+-o /Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-f2700-600x600-lossy-25.gif \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/concave-hull-multi-150f-f2700-600x600.gif
+
+
