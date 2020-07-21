@@ -1,7 +1,7 @@
 let keysActive = true;
 let looping = true;
 let socket, canvas, ctx, canvasDOM;
-let fileName = "/Volumes/Volumina\ 1/frames/shape-convolution/intersection-rotation-900/sketch";
+let fileName = "/Volumes/Volumina/frames/shape-convolution/intersection-rotation-255/sketch";
 let shape, nextShape, points, rotReal, rotComplex;
 let drawCount = 1;
 
@@ -15,7 +15,7 @@ function setup() {
     // noStroke();
     newShape();
     // noLoop();
-    // strokeWeight(1);
+    strokeWeight(1.2);
     var n = 900;
     var inc = TWO_PI / n;
     rotReal = cos(inc);
@@ -40,12 +40,12 @@ function setup() {
 }
 
 function draw() {
-    background(220);
+    background(255);
     translate(550 * 0.5, 550 * 0.5);
     // noFill();
     fill(0);
     // noStroke();
-    stroke(220);
+    stroke(255);
     beginShape();
     for (let i = 0; i < shape.length - 0; i++) {
         let sc = (shape[i].y + (550 * 0.5)) * 0.01;
@@ -53,7 +53,7 @@ function draw() {
     }
     endShape();
     var increment = 0;
-    stroke(220);
+    stroke(255);
     for (let i = 0; i < shape.length; i += 1) {
         let intersection = null;
         let lengthOfIntersect = Infinity;
@@ -80,8 +80,8 @@ function draw() {
             var gradient = ctx.createLinearGradient(
                 shape[i].x, shape[i].y,
                 shape[i].x, shape[i].y + 200);
-            gradient.addColorStop(0, 'rgba(220,220,220,1.0)');
-            gradient.addColorStop(1, 'rgba(220,220,220,1.0)');
+            gradient.addColorStop(0, 'rgba(255,255,255,1.0)');
+            gradient.addColorStop(1, 'rgba(255,255,255,1.0)');
             ctx.strokeStyle = gradient;
             let sc = (shape[i].y + (550 * 0.5)) * 0.01;
             line(shape[i].x * (1 + 0), shape[i].y + 0.5,

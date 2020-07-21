@@ -1,7 +1,7 @@
 let keysActive = true;
 let looping = true;
 let socket, canvas, ctx, canvasDOM;
-let fileName = "/Volumes/Volumina/frames/shape-convolution/vanishing-point-flip-255/sketch";
+let fileName = "/Volumes/Volumina\ 1/frames/shape-convolution/vanishing-point-flip/sketch";
 
 var shape, nextShape, points, n, inc, drawCount, rotReal, rotComplex;
 
@@ -43,52 +43,48 @@ function setup() {
 
 function draw() {
     if (flip == 1) {
-        background(255);
+        background(220);
         fill(0);
         stroke(0);
         // console.log("1");
     } else {
-        background(255);
+        background(220);
         fill(0);
-        stroke(255);
+        stroke(220);
     }
     // push();
     translate(550 * 0.5, 550 * 0.25);
     // noFill();
-    scale(0.75, 0.75);
+    // scale(0.75, 0.75);
 
-    // noStroke();
+    noStroke();
 
     beginShape();
     for (let i = 0; i < shape.length - 0; i++) {
-        let sc = (shape[i].y + (550 * 0.5)) * 0.005;
+        let sc = (shape[i].y + (550 * 0.5)) * 0.00;
         vertex(shape[i].x * (1 + sc), shape[i].y);
     }
     endShape();
     var increment = 0;
     if (flip == -1) {
-        // background(255);
-        stroke(255);
+        // background(220);
+        stroke(220);
     } else {
-        // background(255);
+        // background(220);
         stroke(0);
     }
     for (let i = 0; i < shape.length; i += 1) {
         let intersection = null;
         let lengthOfIntersect = Infinity;
-        let sc = (shape[i].y + (550 * 0.5)) * 0.005;
         for (let j = 0; j < shape.length; j++) {
             let k = (j < shape.length - 1) ? j + 1 : 0;
-            let scj = (shape[j].y + (550 * 0.5)) * 0.005;
-            let sck = (shape[k].y + (550 * 0.5)) * 0.005;
             let test = intersect(
-                shape[i].x * (1 + sc), shape[i].y + 0.1,
-                shape[i].x * (1 + sc), shape[i].y + 2000,
-                shape[j].x * (1 + scj), shape[j].y,
-                shape[k].x * (1 + sck), shape[k].y);
+                shape[i].x + 1, shape[i].y + 1,
+                shape[i].x + 2000, shape[i].y,
+                shape[j].x, shape[j].y,
+                shape[k].x, shape[k].y);
             if (test) {
-
-                let l = dist(shape[i].x * (1 + sc), shape[i].y, test.x, test.y);
+                let l = dist(shape[i].x, shape[i].y, test.x, test.y);
                 if (l < lengthOfIntersect) {
                     lengthOfIntersect = l;
                     intersection = test;
@@ -96,32 +92,10 @@ function draw() {
             }
         }
         if (intersection !== null) {
-            // increment++;
-            // increment += lengthOfIntersect;
-            // let j = intersectionIndex;
-            let sc = (shape[i].y + (550 * 0.5)) * 0.005;
-            let sck = (intersection.y + (550 * 0.5)) * 0.005;
-
-            var gradient = ctx.createLinearGradient(
-                shape[i].x * (1 + sc), shape[i].y,
-                shape[i].x * (1 + sc), shape[i].y + 200);
-            gradient.addColorStop(0, 'rgba(255,255,255,1.0)');
-            gradient.addColorStop(1, 'rgba(255,255,255,1.0)');
-            // ctx.strokeStyle = gradient;
-            line(shape[i].x * (1 + sc), shape[i].y + 2,
-                shape[i].x * (1 + sc), intersection.y - 0.5);
-            // stroke(0);
-            // for (let k = 0; k < 50; k++) {
-            //   let sc = i / 20;
-            //   line(shape[i].x, shape[i].y + i,
-            //        shape[i].x, shape[i].y + i + 1);
-            // }
-
+            line(shape[i].x, shape[i].y, intersection.x, intersection.y);
         } else {
-            line(shape[i].x * (1 + sc), shape[i].y + 2,
-                shape[i].x * (1 + sc), shape[i].y + 1000);
+            line(shape[i].x, shape[i].y, shape[i].x + 2000, shape[i].y);
         }
-        // ellipse(shape[i].x, shape[i].y, 2);
     }
     fill(0);
     // text(shape.length, -550 * 0.5, -550 * 0.5 + 20);
@@ -143,7 +117,7 @@ function draw() {
     // convolute();
     rotateShape();
     if (frameCount % 30 == 0) {
-        flip *= -1;
+        // flip *= -1;
     }
     if (exporting) {
         frameExport();

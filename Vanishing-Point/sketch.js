@@ -1,7 +1,7 @@
 let keysActive = true;
 let looping = true;
 let socket, canvas, ctx, canvasDOM;
-let fileName = "/Volumes/Volumina\ 1/frames/shape-convolution/vanishing-point/sketch";
+let fileName = "/Volumes/Volumina/frames/shape-convolution/vanishing-point-255/sketch";
 
 var shape, nextShape, points, n, inc, drawCount, rotReal, rotComplex;
 
@@ -15,7 +15,7 @@ function setup() {
     // noStroke();
     newShape();
     // noLoop();
-    strokeWeight(1.5);
+    strokeWeight(1.7);
     n = 900;
     inc = TWO_PI / n;
     rotReal = cos(inc);
@@ -41,14 +41,14 @@ function setup() {
 }
 
 function draw() {
-    background(220);
+    background(255);
     // push();
     translate(550 * 0.5, 550 * 0.25);
     // noFill();
     scale(0.75, 0.75);
     fill(0);
     // noStroke();
-    stroke(220);
+    stroke(255);
     beginShape();
     for (let i = 0; i < shape.length - 0; i++) {
         let sc = (shape[i].y + (550 * 0.5)) * 0.005;
@@ -56,7 +56,7 @@ function draw() {
     }
     endShape();
     var increment = 0;
-    stroke(220);
+    stroke(255);
     for (let i = 0; i < shape.length; i += 1) {
         let intersection = null;
         let lengthOfIntersect = Infinity;
@@ -89,8 +89,8 @@ function draw() {
             var gradient = ctx.createLinearGradient(
                 shape[i].x * (1 + sc), shape[i].y,
                 shape[i].x * (1 + sc), shape[i].y + 200);
-            gradient.addColorStop(0, 'rgba(220,220,220,1.0)');
-            gradient.addColorStop(1, 'rgba(220,220,220,1.0)');
+            gradient.addColorStop(0, 'rgba(255,255,255,1.0)');
+            gradient.addColorStop(1, 'rgba(255,255,255,1.0)');
             ctx.strokeStyle = gradient;
             line(shape[i].x * (1 + sc), shape[i].y + 0.5,
                 shape[i].x * (1 + sc), intersection.y - 0.5);

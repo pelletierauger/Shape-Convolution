@@ -1,11 +1,11 @@
 let keysActive = true;
 let looping = true;
 let socket, canvas, ctx, canvasDOM;
-let fileName = "/Volumes/Volumina/frames/shape-convolution/vanishing-point-flip-255/sketch";
+let fileName = "/Volumes/Volumina\ 1/frames/shape-convolution/vanishing-point-flip/sketch";
 
 var shape, nextShape, points, n, inc, drawCount, rotReal, rotComplex;
 
-let flip = -1;
+let flip = 1;
 
 function setup() {
     socket = io.connect('http://localhost:8080');
@@ -17,7 +17,7 @@ function setup() {
     // noStroke();
     newShape();
     // noLoop();
-    strokeWeight(1.5);
+    strokeWeight(1.7);
     n = 900;
     inc = TWO_PI / n;
     rotReal = cos(inc);
@@ -43,36 +43,34 @@ function setup() {
 
 function draw() {
     if (flip == 1) {
-        background(255);
-        fill(0);
-        stroke(0);
-        // console.log("1");
+        background(0);
+        fill(255);
+        stroke(255);
     } else {
         background(255);
         fill(0);
-        stroke(255);
+        stroke(0);
     }
-    // push();
+    push();
     translate(550 * 0.5, 550 * 0.25);
     // noFill();
     scale(0.75, 0.75);
 
     // noStroke();
-
+    // stroke(0);
     beginShape();
     for (let i = 0; i < shape.length - 0; i++) {
         let sc = (shape[i].y + (550 * 0.5)) * 0.005;
         vertex(shape[i].x * (1 + sc), shape[i].y);
     }
     endShape();
-    var increment = 0;
-    if (flip == -1) {
-        // background(255);
-        stroke(255);
+    if (flip == 1) {
+        // stroke(0);
     } else {
-        // background(255);
-        stroke(0);
+        stroke(255);
     }
+    var increment = 0;
+    // stroke(255);
     for (let i = 0; i < shape.length; i += 1) {
         let intersection = null;
         let lengthOfIntersect = Infinity;
@@ -105,12 +103,11 @@ function draw() {
             var gradient = ctx.createLinearGradient(
                 shape[i].x * (1 + sc), shape[i].y,
                 shape[i].x * (1 + sc), shape[i].y + 200);
-            gradient.addColorStop(0, 'rgba(255,255,255,1.0)');
-            gradient.addColorStop(1, 'rgba(255,255,255,1.0)');
+            // gradient.addColorStop(0, 'rgba(255,255,255,1.0)');
+            // gradient.addColorStop(1, 'rgba(255,255,255,1.0)');
             // ctx.strokeStyle = gradient;
-            line(shape[i].x * (1 + sc), shape[i].y + 2,
+            line(shape[i].x * (1 + sc), shape[i].y + 0.5,
                 shape[i].x * (1 + sc), intersection.y - 0.5);
-            // stroke(0);
             // for (let k = 0; k < 50; k++) {
             //   let sc = i / 20;
             //   line(shape[i].x, shape[i].y + i,
@@ -118,7 +115,7 @@ function draw() {
             // }
 
         } else {
-            line(shape[i].x * (1 + sc), shape[i].y + 2,
+            line(shape[i].x * (1 + sc), shape[i].y + 0.5,
                 shape[i].x * (1 + sc), shape[i].y + 1000);
         }
         // ellipse(shape[i].x, shape[i].y, 2);
@@ -132,14 +129,15 @@ function draw() {
     // for (let i = 0; i < points.length; i++) {
     //   ellipse(points[i][0], points[i][1], 5);
     // }
-    // fill(0);
-    // noStroke();
-    // beginShape();
-    // for (let i = 0; i < shape.length - 0; i++) {
-    //     let sc = (shape[i].y + (550 * 0.5)) * 0.005;
-    //     vertex(shape[i].x * (1 + sc), shape[i].y);
+    pop();
+    // if (flip == 1) {
+    //     // var img = ctx.getImageData(0, 0, width, height);
+    //     var img = canvasDOM;
+    //     ctx.filter = 'invert(1)'
+    //     ctx.drawImage(img, 0, 0, 550, 550);
+    //     ctx.filter = "none";
     // }
-    // endShape();
+    // fill(0);
     // convolute();
     rotateShape();
     if (frameCount % 30 == 0) {
