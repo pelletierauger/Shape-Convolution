@@ -15,3 +15,40 @@ ffmpeg -f image2 -framerate 30 \
 -color_range 1 -colorspace 1 -color_primaries 1 -color_trc 1 \
 -crf 17 \
 /Volumes/Volumina\ 1/video-renders/shape-convolution/intersection-rotation-crf17.mp4
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/intersection-rotation/sketch-%05d.png \
+-c:v libx264 -x264-params "keyint=15:no-deblock=1" -pix_fmt yuv420p \
+-sws_flags spline+accurate_rnd+full_chroma_int \
+-vf "colorlevels=rimax=0.8:gimax=0.8:bimax=0.8,colorspace=bt709:iall=bt601-6-625:fast=1" \
+-color_range 1 -colorspace 1 -color_primaries 1 -color_trc 1 \
+-crf 15 \
+/Volumes/Volumina/video-renders/shape-convolution/intersection-rotation-crf15-levels0.8.mp4
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina\ 1/frames/shape-convolution/intersection-rotation-242/sketch-%05d.png \
+-c:v libx264 -x264-params "keyint=15:no-deblock=1" -pix_fmt yuv420p \
+-sws_flags spline+accurate_rnd+full_chroma_int \
+-vf "colorspace=bt709:iall=bt601-6-625:fast=1" \
+-color_range 1 -colorspace 1 -color_primaries 1 -color_trc 1 \
+-crf 15 \
+/Volumes/Volumina\ 1/video-renders/shape-convolution/intersection-rotation-crf15-softgrey.mp4
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/intersection-rotation-255/sketch-%05d.png \
+-c:v libx264 -x264-params "keyint=15:no-deblock=1" -pix_fmt yuv420p \
+-sws_flags spline+accurate_rnd+full_chroma_int \
+-vf "colorspace=bt709:iall=bt601-6-625:fast=1" \
+-color_range 1 -colorspace 1 -color_primaries 1 -color_trc 1 \
+-crf 15 \
+/Volumes/Volumina/video-renders/shape-convolution/intersection-rotation-crf15-white.mp4
+
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/sun/sketch-%05d.png \
+-c:v libx264 -x264-params "keyint=15:no-deblock=1" -pix_fmt yuv420p \
+-sws_flags spline+accurate_rnd+full_chroma_int \
+-vf "colorspace=bt709:iall=bt601-6-625:fast=1" \
+-color_range 1 -colorspace 1 -color_primaries 1 -color_trc 1 \
+-crf 15 \
+/Volumes/Volumina/video-renders/shape-convolution/sun.mp4
