@@ -164,10 +164,106 @@ ffmpeg -f image2 -framerate 30 \
 /Volumes/Volumina/video-renders/shape-convolution/vanishing-point-flip-fit-crf15.mp4
 
 ffmpeg -f image2 -framerate 30 \
--i /Volumes/Volumina/frames/shape-convolution/vanishing-point-flip-slow45/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/vanishing-point-flip-slow/sketch-%05d.png \
 -c:v libx264 -x264-params "keyint=15:no-deblock=1" -pix_fmt yuv420p \
 -sws_flags spline+accurate_rnd+full_chroma_int \
 -vf "colorspace=bt709:iall=bt601-6-625:fast=1" \
 -color_range 1 -colorspace 1 -color_primaries 1 -color_trc 1 \
 -crf 15 \
-/Volumes/Volumina/video-renders/shape-convolution/vanishing-point-flip-slow45-crf15.mp4
+/Volumes/Volumina/video-renders/shape-convolution/vanishing-point-flip-slow-crf15.mp4
+
+
+------groovy flip
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/groovy-flip-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-600x600.gif
+
+gifsicle -O3 --lossy=300 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-flip-600x600-lossy300.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-600x600.gif
+
+--------------------------------------------------------------------------------------------
+groovy fill center
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-fill-center/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/groovy-fill-center-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-fill-center-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-600x600.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-600x600-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-600x600.gif
+
+
+--------------------------------------------------------------------------------------------
+groovy flip ramp
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-ramp/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/groovy-flip-ramp-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-ramp-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-ramp-600x600.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-flip-ramp-600x600-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-ramp-600x600.gif
+
+--------------------------------------------------------------------------------------------
+groovy flip ramp slow
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-ramp-slow/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/groovy-flip-ramp-slow-600x600/sketch-%05d.png
+&&
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-ramp-slow-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-ramp-slow-600x600.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-flip-ramp-slow-600x600-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-ramp-slow-600x600.gif
+
+
+--------------------------------------------------------------------------------------------
+flowy
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/flowy/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/flowy-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/flowy-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/flowy-600x600.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/flowy-600x600-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/flowy-600x600.gif
