@@ -267,3 +267,47 @@ ffmpeg -f image2 -framerate 30 \
 gifsicle -O3 --lossy=200 \
 -o /Volumes/Volumina/video-renders/shape-convolution/flowy-600x600-lossy200.gif \
 /Volumes/Volumina/video-renders/shape-convolution/flowy-600x600.gif
+
+--------------------------------------------------------------------------------------------
+p5-turtle
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/p5-turtle/frame-%05d.png \
+-vf palettegen /Volumes/Volumina/frames/shape-convolution/p5-turtle-palette.png
+
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/flowy/frame-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/flowy-600x600/frame-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/p5-turtle/frame-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/p5-turtle-palette.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/p5-turtle.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/flowy-600x600-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/flowy-600x600.gif
+
+
+--------------------------------------------------------------------------------------------
+groovy flip dragon
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-dragon/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/groovy-flip-dragon-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-dragon-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-600x600.gif
+
+gifsicle -O3 --lossy=250 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-600x600-lossy250.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-600x600.gif
