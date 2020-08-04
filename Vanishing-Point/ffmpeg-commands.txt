@@ -311,3 +311,129 @@ ffmpeg -f image2 -framerate 30 \
 gifsicle -O3 --lossy=250 \
 -o /Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-600x600-lossy250.gif \
 /Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-600x600.gif
+
+
+
+--------------------------------------------------------------------------------------------
+groovy flip dragon thin
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-dragon-thin/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/groovy-flip-dragon-thin-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-dragon-thin-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-thin-600x600.gif
+
+gifsicle -O3 --lossy=250 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-thin-600x600-lossy250.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-thin-600x600.gif
+
+
+--------------------------------------------------------------------------------------------
+groovy fill center thin
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-600x600.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-600x600-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-600x600.gif
+
+
+
+--------------------------------------------------------------------------------------------
+groovy fill center thin fix
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin-fix/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin-fix-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin-fix-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-fix-600x600.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-fix-600x600-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-fix-600x600.gif
+
+
+Trying to make the scaling more crisp
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin-fix/sketch-%05d.png \
+-vf scale=600x600:flags=lanczos \
+/Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin-fix-600x600-crisp/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin-fix-600x600-crisp/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-fix-600x600-crisp.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-fix-600x600-crisp-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-fix-600x600-crisp.gif
+
+gifsicle -O3 --lossy=300 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-fix-600x600-crisp-lossy300.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-fill-center-thin-fix-600x600-crisp.gif
+
+
+
+--------------------------------------------------------------------------------------------
+groovy flip dragon thin fix
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-dragon-thin-fix/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/groovy-flip-dragon-thin-fix-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/groovy-flip-dragon-thin-fix-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-thin-fix-600x600.gif
+
+gifsicle -O3 --lossy=250 \
+-o /Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-thin-fix-600x600-lossy250.gif \
+/Volumes/Volumina/video-renders/shape-convolution/groovy-flip-dragon-thin-fix-600x600.gif
+
+
+
+--------------------------------------------------------------------------------------------
+flowy thin fix
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/flowy-thin-fix/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/flowy-thin-fix-600x600/sketch-%05d.png
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/flowy-thin-fix-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/flowy-thin-fix-600x600.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/flowy-thin-fix-600x600-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/flowy-thin-fix-600x600.gif

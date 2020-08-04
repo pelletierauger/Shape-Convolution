@@ -1,7 +1,7 @@
 let keysActive = true;
 let looping = true;
 let socket, canvas, ctx, canvasDOM;
-let fileName = "/Volumes/Volumina/frames/shape-convolution/groovy-fill-center/sketch";
+let fileName = "/Volumes/Volumina/frames/shape-convolution/groovy-fill-center-thin/sketch";
 
 var shape, nextShape, points, n, inc, drawCount, rotReal, rotComplex;
 var floatCount = 0;
@@ -23,8 +23,8 @@ function setup() {
     // noStroke();
     newShape();
     // noLoop();
-    strokeWeight(1.2);
-    g.strokeWeight(1.2);
+    strokeWeight(1);
+    g.strokeWeight(1);
     n = 450;
     inc = TWO_PI / n;
     rotReal = cos(inc);
