@@ -1,0 +1,55 @@
+--------------------------------------------------------------------------------------------
+typography-z
+--------------------------------------------------------------------------------------------
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/shape-convolution/typography-z/sketch-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/shape-convolution/typography-z-600x600/sketch-%05d.png
+
+
+
+ffmpeg -f image2 \
+-i /Volumes/Volumina/frames/p5-turtle-typography/frame-%05d.png \
+-s 600x600 \
+/Volumes/Volumina/frames/p5-turtle-typography-600x600/frame-%05d.png
+
+
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/typography-z-600x600/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/typography-z-600x600.gif
+
+gifsicle -O3 --lossy=200 \
+-o /Volumes/Volumina/video-renders/shape-convolution/flowy-thin-fix-600x600-lossy200.gif \
+/Volumes/Volumina/video-renders/shape-convolution/flowy-thin-fix-600x600.gif
+
+ffmpeg -f concat -safe 0 -r 30 \
+-i /Users/guillaumepelletier/Desktop/Dropbox/Art/p5/Shape-Convolution/Typography/turtle-typography.txt \
+ -vf "palettegen" -y /Volumes/Volumina/frames/shape-convolution/turtle-typography.png
+
+
+ffmpeg -f concat -safe 0 -r 30 \
+-i /Users/guillaumepelletier/Desktop/Dropbox/Art/p5/Shape-Convolution/Typography/turtle-typography-full.txt \
+-i /Volumes/Volumina/frames/shape-convolution/turtle-typography.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/typography-z.gif
+
+
+
+
+
+ffmpeg -f image2 -framerate 30 \
+-i /Volumes/Volumina/frames/shape-convolution/typography-z-thicker/sketch-%05d.png \
+-i /Volumes/Volumina/frames/shape-convolution/sun-fill.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/typography-z-thicker.gif
+
+
+ffmpeg -f concat -safe 0 -r 30 \
+-i /Users/guillaumepelletier/Desktop/Dropbox/Art/p5/Shape-Convolution/Typography/turtle-typography-thicker.txt \
+-i /Volumes/Volumina/frames/shape-convolution/turtle-typography.png \
+-lavfi paletteuse \
+/Volumes/Volumina/video-renders/shape-convolution/typography-z-thicker-full.gif
