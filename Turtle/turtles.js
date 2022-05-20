@@ -81,46 +81,56 @@ var turtle = new Turtle({
 
     turtle.reset({
         awake: true,
-        heading:0,
+        heading: 0,
         position: new p5.Vector(152, -100),
         stepsPerFrame: 100,
         instructions: function() {
             let ar = [4, 2];
-            let m = 10;
+            let m = 5;
+            let n;
             repeat(m, ii => {
-                left(90);
-                repeat(50, t => {
-                   forward(ar[ii % 2]);
-                   left(2);
+                // left(90);
+                n = 1;
+                si = 45;
+                repeat(30, t => {
+                   forward(1);
+                   left(Math.sin(t * 0.5) * 10 * map(t, 0, 60, 1, 0));
+                    // n *= 1.02;
                 });
-                left(90);
-                var n = 10;
-                repeat(n - 1, t => {
-                    repeat(360 / n, t => {
-                       forward(0.5);
-                       right(1);
-                    });
-                    left(180);
-                    repeat(360, t => {
-                        forward(0.25 );
-                        right(1);
-                    });
-                    right(180);
+                left(200);
+                repeat(si, t => {
+                   forward(0.5);
+                   left(Math.sin(t * 0.5) * 10 * map(t, 0, 60, 1, 0));
                 });
-                repeat(360 / n, t => {
-                       forward(0.5);
-                       right(1);
-                    });
-                left(90);
-                repeat(50, t => {
-                   forward(ar[ii % 2]); 
-                   right(2);
+            
+                n = 1;
+                repeat(si, t => {
+                   forward(0.5);
+                   right(n - (Math.sin(t * 0.5) * 10 * map(t, 0, 60, 0.25, 1.5)));
+                    n *= 1.04;
                 });
-                left(90);
-                repeat(360, t => {
-                    forward(0.1);
-                    right(1 / m);
+            repeat(120, t => {
+                   forward(1);
+                   left(Math.sin(t * 0.5) * 10 * map(t, 0, 60, 1, 0));
+                    // n *= 1.02;
                 });
+                right(200);
+                            n = 1;
+                repeat(si, t => {
+                   forward(0.5);
+                   right(n - (Math.sin(t * 0.5) * 10 * map(t, 0, 60, 0.25, 1.5)));
+                    n *= 1.04;
+                });
+                            right(200);
+                repeat(si, t => {
+                   forward(0.5);
+                   left(Math.sin(t * 0.5) * 10 * map(t, 0, 60, 1, 0));
+                });
+                            repeat(45, t => {
+                   forward(0.5);
+                   left(Math.sin(t * 0.5) * 10 * map(t, 0, 60, 1, 0));
+                });
+                // left(90);
             });
         }
     });
